@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Chat</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        }
+        
+        #messages {
+            height: 88vh;
+            overflow-x: hidden;
+            padding: 10px;
+            background-color: burlywood;
+        }
+        
+        form {
+            display: flex;
+        }
+        
+        input {
+            font-size: 1.3rem;
+            padding: 10px;
+            margin: 10px 5px;
+            appearance: none;
+            -webkit-appearance: none;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .msg {
+            background-color: #ccc;
+            padding: 5px 10px;
+            border-radius: 5px;
+            width: fit-content;
+            margin-bottom: 8px;
+        }
+        
+        .msg p {
+            margin: 0px;
+            font-weight: bold;
+        }
+        
+        #message {
+            flex: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="messages"></div>
+    <form>
+        <input type="text" id="message" autocomplete="off" autofocus placeholder="Type message here..." />
+        <input type="submit" id="Send" />
+    </form>
+    <script src="../js/jquery-3.6.0.js"></script>
+    <script>
+        var user = null;
+        var start = 0;
+        var url = "http://localhost/barber/chat/chat.php";
+        $(document).ready(function() {
+            user = prompt("Plz enter Your name:");
+            loadData();
+            $("form").submit(function(e) {
+                $.post(url, {
+                    message: $("#message").val(),
+                    from: user,
+                });
+                $("#message").val("");
+                return false;
+            });
+        });
+
+        function loadData() {
+            $.get(url + "?start=" + start, function(result) {
+                if (result.items) {
+                    result.items.forEach((item) => {
+                        start = item.id;
+                        $("#messages").append(renderMessage(item));
+                    });
+                }
+            });
+            // $("html, body").animate({
+
+            //     scrollBottom: $(this).height(),
+            // });
+        }
+
+        function renderMessage(item) {
+            let time = new Date(item.created);
+            time = `${time.getHours()}:${time.getMinutes()}`;
+            return `<div class="msg"><p>${item.from}</p>${item.message}<sapn style="font-size:.7rem;margin-left:18px;">${time}</span></div>`;
+        }
+        // $(document).ready(function() {
+        //     $.ajax({
+        //         url: "https://jsonplaceholder.typicode.com/posts",
+        //         type: "GET",
+        //         success: function(data) {
+        //             console.log(data);
+        //         }
+        //     })
+        // })
+    </script>
+</body>
+
+</html>

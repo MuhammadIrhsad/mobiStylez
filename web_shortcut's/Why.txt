@@ -1,0 +1,1 @@
+Q.What is the difference between object oriented and procedural methode while working with PHP.

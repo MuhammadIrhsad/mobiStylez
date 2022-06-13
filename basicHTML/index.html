@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: Arial;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        form.example input[type=text] {
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid grey;
+            float: left;
+            width: 80%;
+            background: #f1f1f1;
+        }
+        
+        form.example button {
+            float: left;
+            width: 20%;
+            padding: 10px;
+            background: #2196F3;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none;
+            cursor: pointer;
+        }
+        
+        form.example button:hover {
+            background: #0b7dda;
+        }
+        
+        form.example::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        
+        li {
+            display: none;
+        }
+    </style>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <form class="example">
+            <input type="text" autocomplete="off" onkeyup="search_list()" id="search-text" placeholder="Search.." name="search">
+            <button id="search-btn"><i class="fa fa-search"></i></button>
+        </form>
+        <ul class="list-group" id="mylist">
+            <li class="list-group-item">Give payment</li>
+            <li class="list-group-item">Use your mind</li>
+            <li class="list-group-item">Send element</li>
+            <li class="list-group-item">Call Agent</li>
+            <li class="list-group-item">When to start</li>
+        </ul>
+    </div>
+    <script>
+        var search = document.getElementById("search-btn");
+        var val_txt = document.getElementById("search-text");
+
+        const search_list = (e) => {
+            searchText = val_txt.value.toUpperCase();
+            console.log(searchText);
+            var ul = document.getElementById("mylist");
+            var list = ul.getElementsByTagName("li");
+            searchText = searchText;
+            for (let index = 0; index < list.length; index++) {
+                const element = list[index];
+                var text = element.innerHTML.toUpperCase();
+                if (text.indexOf(searchText) > -1) {
+                    console.log(element);
+                    element.style.display = "block";
+                    // element.style.animation=""
+                } else {
+                    element.style.display = "none";
+                }
+            }
+            return false;
+
+        }
+    </script>
+</body>
+
+</html>

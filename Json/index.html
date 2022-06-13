@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Json encode</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col mx-4">Hello</div>
+            <div class="col mx-4">Hello</div>
+            <div class="col mx-4">Hello</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="text-center text-light bg-primary">
+            Json Encode
+        </div>
+        <div class="load-data">
+
+        </div>
+    </div>
+
+    <script src="../js/jquery-3.6.0.js"></script>
+    <script>
+        // function loadData() {
+        //     $.get(url + "?start=" + start, function(result) {
+        //         if (result.items) {
+        //             result.items.forEach((item) => {
+        //                 start = item.id;
+        //                 $("#messages").append(renderMessage(item));
+        //             });
+        //         }
+        //         loadData();
+        //     });
+        //     // $("html, body").animate({
+
+        //     //     scrollBottom: $(this).height(),
+        //     // });
+        // }
+        var start = 0;
+
+        setInterval(() => {
+            $.get("http://localhost/barber/Json/fetch-json.php?start=" + start, function(data) {
+                if (data) {
+                    $.each(data, function(key, value) {
+                        start = value.user_id;
+                        $(".load-data").append(value.user_id + " " + value.f_name + " " + value.l_name + "<br>");
+                    });
+                }
+            });
+        }, 1000);
+    </script>
+</body>
+
+</html>

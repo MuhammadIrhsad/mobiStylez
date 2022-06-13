@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function isEmpty() {
+            var x = document.forms["myform"]["username"].value;
+            var y = document.forms["myform"]["password"].value;
+            if (x == "" || x == null) {
+                alert("Name field is empty");
+                document.getElementById("user-name").style.boxShadow = "3px 3px 10px blue";
+
+            } else {
+                return false;
+            }
+            if (y == "" || x == null) {
+                alert("Password Field is Empty");
+                document.getElementById("pass").style.boxShadow = "3px 3px 10px blue";
+            } else
+                return false;
+        }
+    </script>
+</head>
+
+<body>
+    <form action="#" name="myform" onsubmit="return isEmpty()" required>
+        <input type="text" id="user-name" name="username" required="yes" disabled="disable" placeholder="Enter Your name here s" style="margin: 3px; padding: 5px; border: 2px solid grey;">
+        <input type="password" id="pass" name="password" placeholder="Enter Your password here s" style="margin: 3px; padding: 5px; border: 2px solid grey;">
+
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+
+
+</html>

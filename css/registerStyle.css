@@ -1,0 +1,72 @@
+* {
+    padding: 0%;
+    margin: 0%;
+}
+
+body {
+    height: 90vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+}
+
+body::before {
+    content: "";
+    background: url("../images/signIn.png") no-repeat center center/cover;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+.registerBox {
+    border-radius: 10px;
+    height: 70%;
+    background-color: white;
+    border: 2px solid grey;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 14px;
+    transform: translate(-225px, 45px);
+}
+
+.container {
+    height: 280px;
+    width: 500px;
+    padding: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+}
+
+.container .heading {
+    text-transform: capitalize;
+}
+
+.container input {
+    /* border-radius: 3px; */
+    width: 200px;
+    height: 35px;
+    margin: 10px;
+    padding: 3px;
+}
+
+.container button {
+    height: 40px;
+    width: 110px;
+    color: white;
+    background-color: red;
+    border-radius: 12px;
+}
+
+.container button:hover {
+    background-color: rgb(114, 89, 89);
+}

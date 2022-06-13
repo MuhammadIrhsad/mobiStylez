@@ -1,0 +1,95 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+/* whole screen  with login class */
+
+.loginContainer {
+    height: 90vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginContainer::before {
+    content: "";
+    background: url("../barberImages/signIn.png") no-repeat center center/cover;
+    /* background-color: url("../images/signIn.png") no-repeat center center/cover ; */
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+
+/* It takes heading and forms */
+
+.container {
+    background-color: white;
+    width: 300px;
+    height: 500px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 3px rgb(219 187 187);
+    border: 1px solid rgb(196, 173, 173);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.logo {
+    height: 130px;
+    width: 130px;
+    border-radius: 50px;
+}
+
+.heading {
+    color: rgb(80, 95, 60);
+    border-bottom: 1px solid rgb(177, 139, 139);
+    margin: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    width: 200px;
+    margin: 10px 0px 10px 10px;
+}
+
+button {
+    background-color: red;
+    margin: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+
+.fgPass {
+    padding: 5px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.bottom-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 10px;
+}

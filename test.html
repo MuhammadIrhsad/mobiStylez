@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="css/mobiscroll.jquery.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+
+<body>
+    <div class="tValue"></div>
+    <input type="time" id="demo" name="" id="">
+    <input type="date" id="date1">
+    <input type="date" id="date2">
+    <div id="sub" class="cursor:pointer btn-sm btn-primary">
+        subtract
+    </div>
+
+    <input type="text" id="timepicker" placeholder="Pick a time..." />
+
+    <div class="container">
+        <h2>Large Modal</h2>
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Open Large Modal</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>This is a large modal.</p>
+                    </div>
+                    <p class="btn-sm btn-success">Schedule</p>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="mdtimepicker.css" />
+    <script src="/path/to/cdn/jquery.min.js"></script>
+    <script src="mdtimepicker.js"></script>
+    <!-- //////// -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="js/mobiscroll.jquery.min.js"></script>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $("document").ready(function() {
+            $("#sub").on("click", function() {
+                var d1 = $("#date1").val();
+                var d2 = $("#date2").val();
+                var edate = new Date(d1);
+                var sdate = new Date(d2);
+                var days = (edate - sdate) / (1000 * 60 * 60 * 24);
+                days = days;
+                alert(days);
+            })
+            $('#timepicker').mdtimepicker({
+
+                // time format
+                timeFormat: 'hh:mm:ss.000',
+
+                // format of the input value
+                format: 'hh:mm tt',
+
+                // readonly mode
+                readOnly: false,
+
+                // determines if display value has zero padding for hour value less than 10 (i.e. 05:30 PM); 24-hour format has padding by default
+                hourPadding: false,
+
+                // theme of the timepicker
+                // 'red', 'purple', 'indigo', 'teal', 'green', 'dark'
+                theme: 'green',
+
+                // custom label text
+                okLabel: 'Done',
+                cancelLabel: 'Cancel',
+
+            });
+            $('#timepicker').mdtimepicker().on('timechanged', function(e) {
+                console.log(e.value);
+                console.log(e.time);
+            });
+            // setting the value
+            $('#timepicker').mdtimepicker('setValue', '3:30 PM');
+
+            // calling the `show` and `hide` functions
+            $('#timepicker').mdtimepicker('show');
+            $('#timepicker').mdtimepicker('hide');
+
+            // destroying the timepicker
+            $('#timepicker').mdtimepicker('destroy');
+            $('#exampleModal').on('show.bs.modal', function(event) {
+                var button = $(event.relatedTarget) // Button that triggered the modal
+                var recipient = button.data('whatever') // Extract info from data-* attributes
+                    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+                    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+                var modal = $(this)
+                modal.find('.modal-title').text('New message to ' + recipient)
+                modal.find('.modal-body input').val(recipient)
+            })
+        })
+        var t = document.getElementsByClassName("tValue");
+        date = new Date();
+        t.innerHTML = date.datepicker;
+        mobiscroll.setOptions({
+            theme: 'ios',
+            themeVariant: 'light'
+        });
+
+        $(function() {
+            $('#demo').mobiscroll().datepicker({
+                controls: ['calendar', 'time'],
+                display: 'inline'
+            });
+
+            $('#demo-timegrid').mobiscroll().datepicker({
+                controls: ['calendar', 'timegrid'],
+                display: 'inline'
+            });
+        });
+    </script>
+</body>
+
+</html>

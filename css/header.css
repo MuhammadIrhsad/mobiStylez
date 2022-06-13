@@ -1,0 +1,42 @@
+nav {
+    background-color: rgb(239, 61, 61);
+    border-radius: 10px 10px 0px 0px;
+}
+
+ ::placeholder {
+    color: white;
+}
+
+#navin {
+    font-size: 0.8vw;
+    background: transparent;
+    color: white;
+    border: 0.7px solid white;
+    border-radius: 0.3vw;
+    margin-right: 1vw;
+    margin-top: 0.4vw;
+    height: 2.3vw;
+}
+
+.noti {
+    color: white;
+    font-size: 1.7vw;
+    margin-right: 1vw;
+    margin-top: 0.5vw;
+}
+
+.ite {
+    font-family: Qwigley;
+    font-size: 25px;
+    width: 100px;
+}
+
+.ite:hover {
+    text-decoration: underline;
+}
+
+input:focus {
+    border: 0px;
+    outline: 0px;
+    border-color: none;
+}

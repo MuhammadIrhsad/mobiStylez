@@ -1,0 +1,38 @@
+Laravel Comand's
+
+
+//for making components in laravel
+php artisan make:component Input
+
+//For configure cache
+ php artisan config:cache
+
+//Database migration
+php artisan migrate
+
+
+//Creating table using migration files
+php artisan make:migration create_users_table
+
+//Restoring  the last migration 
+php artisan migrate:rollback
+php artisan migrate:rollback-5
+
+//Adding Columns in the table using migration
+php artisan make:migration add_columns_to_customer_info_table
+php artisan make:migration add_deleted_at_to_customer_info_table //This is for adding deleted_at column in table while using SoftDelete...
+
+//Creating Model in laravel for table
+php artisan make:model <Table_Name>
+
+//Model with Migration
+
+php artisan make:model <ModelName> --migration
+Example: php artisan make:model CustomerInfo --migration
+
+//Model with Controller & Migration
+php artisan make:model --migration --controller <ModelName> <Controller_Method>
+Example: php artisan make:model --migration --controller Customer --resource
+
+//For auto-loading the composer
+composer dump-autoload
